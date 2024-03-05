@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from tensorflow.keras.callbacks import History
 
-possible_characters = "abcdefghijklmnopqrstuvwxyzäöüß"
+german_characters = "abcdefghijklmnopqrstuvwxyzäöüß"
 
 
 def one_hot_word(word, possible_characters = "abcdefghijklmnopqrstuvwxyz", default_length = None):
@@ -62,3 +62,9 @@ def slice_history(history: dict[str, list[float]], start = None, end = None):
     for key in history:
         sliced_history[key] = history[key][start:end]
     return sliced_history
+
+def wordToSequence(word: str, possible_characters = "abcdefghijklmnopqrstuvwxyz", set_length = None):
+    array = np.array([possible_characters.index(char) for char in word])
+    if set_length != None:
+        array = np.pad(array, (0, set_length - len(word)))
+    return array
