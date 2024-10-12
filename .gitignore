@@ -5,7 +5,9 @@ __pycache__/
 
 /venvTensorflow/
 
+
 data.txt
+
 # C extensions
 *.so
 
