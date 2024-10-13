@@ -56,7 +56,9 @@ cm = confusion_matrix(y_true_classes, y_pred_classes)
 
 # Plot confusion matrix
 plt.figure(figsize=(10, 8))
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues')
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+            xticklabels=possible_classes,
+            yticklabels=possible_classes)
 plt.title('Confusion Matrix')
 plt.ylabel('True Label')
 plt.xlabel('Predicted Label')
